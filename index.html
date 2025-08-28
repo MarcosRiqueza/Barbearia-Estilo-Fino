@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia Estilo Fino - Corte Tradicional & Moderno</title>
+    <style>
+        /* Estilos CSS */
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #d4af37;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--primary);
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1527525443983-6e60c75fff46');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #f1c40f;
+        }
+        
+        .services {
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+        
+        .services h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-card h3 {
+            color: var(--secondary);
+            font-size: 1.5rem;
+        }
+        
+        .price {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        
+        .about {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 1rem;
+        }
+        
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .about img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        
+        .gallery {
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+        
+        .gallery h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 4px;
+            transition: transform 0.3s;
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        
+        .booking {
+            background-color: var(--light);
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+        
+        .booking h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            text-align: left;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        button[type="submit"] {
+            grid-column: span 2;
+            padding: 1rem;
+            background-color: var(--secondary);
+            color: var(--primary);
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #f1c40f;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        
+        .social-links {
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        /* Botão do WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            background: #128C7E;
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        @media (max-width: 768px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+            
+            form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            
+            button[type="submit"] {
+                grid-column: span 1;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Barbearia Estilo Fino</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#gallery">Galeria</a></li>
+                <li><a href="#booking">Agendamento</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero" id="home">
+        <h1>Estilo e Tradição em Cada Corte</h1>
+        <p>Na Barbearia Estilo Fino, combinamos técnicas tradicionais com os cortes mais modernos para oferecer a melhor experiência em cuidados masculinos.</p>
+        <a href="#booking" class="btn">Agende Seu Horário</a>
+    </section>
+    
+    <section class="services" id="services">
+        <h2>Nossos Serviços</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Corte de Cabelo</h3>
+                <p>Corte profissional com técnicas modernas e acabamento perfeito.</p>
+                <p class="price">R$ 50,00</p>
+            </div>
+            <div class="service-card">
+                <h3>Barba Completa</h3>
+                <p>Modelagem e tratamento de barba com toalha quente e produtos premium.</p>
+                <p class="price">R$ 40,00</p>
+            </div>
+            <div class="service-card">
+                <h3>Corte + Barba</h3>
+                <p>Pacote completo com corte de cabelo e tratamento de barba.</p>
+                <p class="price">R$ 80,00</p>
+            </div>
+            <div class="service-card">
+                <h3>Hidratação</h3>
+                <p>Tratamento capilar e de barba para manter os fios saudáveis.</p>
+                <p class="price">R$ 35,00</p>
+            </div>
+            <div class="service-card">
+                <h3>Pigmentação</h3>
+                <p>Disfarce os fios brancos e uniformize a cor da sua barba.</p>
+                <p class="price">R$ 60,00</p>
+            </div>
+            <div class="service-card">
+                <h3>Pacote Premium</h3>
+                <p>Corte, barba, hidratação e massagem relaxante.</p>
+                <p class="price">R$ 120,00</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about" id="about">
+        <div class="about-container">
+            <div>
+                <h2>Sobre Nós</h2>
+                <p>A Barbearia Estilo Fino nasceu da paixão por cortes precisos e pelo resgate da tradição das antigas barbearias. Nossa equipe é formada por profissionais certificados e apaixonados por transformar o visual dos nossos clientes.</p>
+                <p>Utilizamos apenas produtos de alta qualidade e técnicas atualizadas para garantir a melhor experiência. Nosso ambiente foi cuidadosamente projetado para proporcionar conforto e uma atmosfera exclusivamente masculina.</p>
+                <p>Mais do que um corte, oferecemos uma experiência completa de cuidado e bem-estar.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70" alt="Interior da Barbearia">
+        </div>
+    </section>
+    
+    <section class="gallery" id="gallery">
+        <h2>Nossos Trabalhos</h2>
+        <div class="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1" alt="Corte de cabelo">
+            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e" alt="Barba feita">
+            <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486" alt="Cliente satisfeito">
+            <img src="https://images.unsplash.com/photo-1567894340315-735d7c361db0" alt="Detalhe do corte">
+            <img src="imagens/Fotos barbearia 3.jpg"                                alt="Barbearia Professional">     
+            <img src="imagens/Fotos barbearia 2.jpg"                                alt="Barbearia Professional">
+            <img src="imagens/Fotos barbearia 1.jpg"                                alt="Barbearia Professional">
+            <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35" alt="Produtos de qualidade">
+        </div>
+    </section>
+    
+    <section class="booking" id="booking">
+        <h2>Agende Seu Horário</h2>
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="name">Nome Completo</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Telefone</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="service">Serviço</label>
+                <select id="service" name="service" required>
+                    <option value="">Selecione um serviço</option>
+                    <option value="haircut">Corte de Cabelo</option>
+                    <option value="beard">Barba Completa</option>
+                    <option value="haircut+beard">Corte + Barba</option>
+                    <option value="hydration">Hidratação</option>
+                    <option value="pigmentation">Pigmentação</option>
+                    <option value="premium">Pacote Premium</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date">Data</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Horário</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+            <div class="form-group full-width">
+                <label for="message">Mensagem (Opcional)</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+            <button type="submit">Confirmar Agendamento</button>
+        </form>
+    </section>
+    
+    <footer>
+        <div class="logo">Barbearia Estilo Fino</div>
+        <div class="contact-info">
+            <p>Rua da Tradição, 123 - Centro</p>
+            <p>(11) 91569-6867</p>
+            <p>contato@barbeariaestilofino.com</p>
+        </div>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2025 Barbearia Estilo Fino. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5511915696867?text=Olá,%20gostaria%20de%20agendar%20um%20horário%20na%20Barbearia%20Estilo fino?" 
+       class="whatsapp-float" 
+       target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>
